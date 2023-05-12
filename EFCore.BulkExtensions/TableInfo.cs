@@ -606,6 +606,14 @@ public class TableInfo
                             {
                                 doAddProperty = false;
                             }
+                            if (AreSpecifiedPropertiesToIncludeOnCompare && !(BulkConfig.PropertiesToIncludeOnCompare?.Contains(ownedPropertyFullName) ?? false))
+                            {
+                                doAddProperty = false;
+                            }
+                            if (AreSpecifiedPropertiesToExcludeOnCompare && (BulkConfig.PropertiesToExcludeOnCompare?.Contains(ownedPropertyFullName) ?? false))
+                            {
+                                doAddProperty = false;
+                            }
 
                             if (doAddProperty)
                             {
